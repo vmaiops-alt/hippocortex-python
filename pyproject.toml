@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hippocortex"
+version = "1.2.1"
+description = "Official Hippocortex Python SDK — AI agent memory that learns from experience"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [{ name = "Hippocortex", email = "dev@hippocortex.dev" }]
+keywords = ["hippocortex", "ai", "memory", "agents", "llm", "rag"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "httpx>=0.24.0",
+]
+
+[project.urls]
+Homepage = "https://hippocortex.dev"
+Documentation = "https://docs.hippocortex.dev"
+Repository = "https://github.com/vmaiops-alt/hippocortex-python"
+"Bug Tracker" = "https://github.com/hippocortex/hippocortex-os/issues"
+Changelog = "https://github.com/hippocortex/hippocortex-os/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+openai-agents = ["openai-agents>=0.1.0"]
+langgraph = ["langgraph>=0.2.0"]
+crewai = ["crewai>=0.50.0"]
+autogen = ["pyautogen>=0.2.0"]
+all = [
+    "openai-agents>=0.1.0",
+    "langgraph>=0.2.0",
+    "crewai>=0.50.0",
+    "pyautogen>=0.2.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "respx>=0.21",
+]
+
+[tool.setuptools.packages.find]
+include = ["hippocortex*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
